@@ -1,25 +1,21 @@
 package com.acadl.finora.auth.controller;
 
+import com.acadl.finora.auth.dto.RegisterRequest;
 import com.acadl.finora.auth.model.User;
-import com.acadl.finora.auth.repository.UserRepository;
+import com.acadl.finora.auth.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/create_user")
+@RequestMapping("/auth")
+@RequiredArgsConstructor
 public class AuthController {
 
-    private final UserRepository userRepository;
+    private final AuthService authService;
 
-    public AuthController(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
-
-    @PostMapping
-    public User createUser(@RequestBody User user){
-        return userRepository.create(user);
+    @PostMapping("/register")
+    public User register(@RequestBody RegisterRequest request) {
+        return authService.register(request);
     }
 
 }
-
-

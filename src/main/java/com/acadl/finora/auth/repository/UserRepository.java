@@ -1,7 +1,10 @@
 package com.acadl.finora.auth.repository;
 
 import com.acadl.finora.auth.model.User;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository {
-    User create(User user);
+import java.util.UUID;
+
+public interface UserRepository extends JpaRepository<User, UUID> {
+
 }
