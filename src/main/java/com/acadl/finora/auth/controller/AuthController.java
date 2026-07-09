@@ -7,10 +7,14 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/create_user")
-@RequiredArgsConstructor
 public class AuthController {
 
     private final UserRepository userRepository;
+
+    public AuthController(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
+
     @PostMapping
     public User createUser(@RequestBody User user){
         return userRepository.create(user);
