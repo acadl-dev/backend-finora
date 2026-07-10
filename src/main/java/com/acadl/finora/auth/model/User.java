@@ -18,7 +18,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    private String nome;
+    private String name;
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private Credential credential;

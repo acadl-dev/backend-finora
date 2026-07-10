@@ -26,12 +26,9 @@ public class Credential {
 
     @NotBlank(message = "A senha é um campo obrigatório!")
     @Column(nullable = false)
-    private String senha_hash;
+    private String hash_password;
 
     @OneToOne
     @JoinColumn(name = "user_id")
     private User user;
-
-    @ManyToMany
-    private List<Role> roles;
 }
