@@ -1,7 +1,9 @@
 package com.acadl.finora.auth.controller;
-import com.acadl.finora.auth.model.Credential;
-import com.acadl.finora.auth.service.AuthService;
+import com.acadl.finora.auth.dto.RegisterDTO;
+import com.acadl.finora.auth.service.CredentialService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -9,11 +11,12 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class AuthController {
 
-    private final AuthService authService;
+    private final CredentialService authService;
 
-    @PostMapping("/register")
-    public Credential register(@RequestBody Credential request) {
-        return authService.register(request);
+    @PostMapping("/register") //retirar o patch desnecessario
+    public ResponseEntity<RegisterDTO> registerNewUser(@RequestBody RegisterDTO registerDTO) {
+        RegisterDTO registeredUser = authService.registerNewUser(registerDTO);
+        return ResponseEntity.status(HttpStatus.OK).body(registeredUser);
     }
 
 }

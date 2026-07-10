@@ -23,4 +23,7 @@ public class User {
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private Credential credential;
 
+    public User(String name) {
+        this.name = name;
+    }
 }

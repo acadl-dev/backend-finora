@@ -31,4 +31,10 @@ public class Credential {
     @OneToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+
+    public Credential(String email, String hash_password) {
+        this.email = email;
+        this.hash_password = hash_password;
+    }
 }
