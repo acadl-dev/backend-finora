@@ -27,7 +27,7 @@ public class CredentialService {
 
         Credential credential = CredentialMapper.toEntity(registerDTO);
         credential.setUser(userSalvo);
-        credential.setHash_password(cryptographicPassword);
+        credential.setHashPassword(cryptographicPassword);
         credentialRepository.save(credential);
 
         return CredentialMapper.toDTO(credential);

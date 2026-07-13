@@ -14,7 +14,7 @@ public class CredentialMapper {
         return new RegisterDTO(
                 credential.getUser().getName(),
                 credential.getEmail(),
-                credential.getHash_password()
+                credential.getHashPassword()
 
         );
     }
